@@ -47,7 +47,7 @@ BiocManager::install("phyloseq")
 
 ```
 library(devtools)
-install_github("hk1785/PRIF", force=T)
+install_github("hk1785/PIRF", force=T)
 ```
 
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ Compute predicted responses.
 predict(out.cla[["0.1"]]$fit, data = X)$predictions
 ```
 
-### Example (Classification)
+### Example (Regression)
 Import requisite R packages
 ```
 library(cluster)
