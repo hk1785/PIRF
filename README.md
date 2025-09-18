@@ -119,8 +119,9 @@ out.cla[["0.1"]]$fit
 Compute predicted responses.
 ```
 predict(out.cla[["0.1"]]$fit, data = X)$predictions
+```
 
-### Example (Regression)
+### Example (Classification)
 Import requisite R packages
 ```
 library(cluster)
@@ -157,13 +158,26 @@ Compute predicted responses.
 ```
 predict(out.reg[["sqrt"]]$fit, data = X)$predictions
 ```
-Other example datasets in the _phyloseq_ format for the classification tasks of inflammation (Park et al., 2023), immunotherapy (Limeta et al., 2020), and obesity (Mcdonald et al., 2018).
+### Other Example Datasets
+Other example datasets in the phyloseq format for the classification tasks of inflammation (Park et al., 2023), immunotherapy (Limeta et al., 2020), and obesity (Mcdonald et al., 2018).
 ```
 data(inflammation)
+inflammation
+```
+```
 data(immunotherapy)
+immunotherapy
+```
+```
 data(obesity)
+obesity
 ```
 Other example datasets in the phyloseq format for the regression tasks of cytokine (Park et al., 2023) and age based on gut microbiome (Mcdonald et al., 2018).
 ```
 data(cytokine)
+cytokine
+```
+```
 data(age.gut)
+age.gut
+```
