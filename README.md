@@ -104,7 +104,7 @@ Perform PIRF.
 ```
 out.cla <- pirf(X, y, phy.tree, num.trees = 1000, num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
 ```
-Check out-of-bag (OOB) prediction errors.
+Check out-of-bag (OOB) prediction errors (classification error rates); select the one with the smallest value.
 ```
 out.cla[["0.1"]]$oob.err
 out.cla[["sqrt"]]$oob.err
@@ -120,4 +120,50 @@ Compute predicted responses.
 ```
 predict(out.cla[["0.1"]]$fit, data = X)$predictions
 
+### Example (Regression)
+Import requisite R packages
+```
+library(cluster)
+library(phyloseq)
+library(ranger)
+```
+Example Data: Oral microbiome data in the phyloseq format for the regression tasks of age (Park et al, 2023).
+```
+data(age.oral)
 
+age.oral
+
+X <- as.data.frame(otu_table(age.oral))
+y <- as.numeric(unlist(sample_data(age.oral)))
+phy.tree <- phy_tree(age.oral)
+```
+Perform PIRF.
+```
+out.reg <- pirf(X, y, phy.tree, num.trees = 1000, num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
+```
+Check out-of-bag (OOB) prediction errors (root mean squared errors); select the one with the smallest value.
+```
+sqrt(out.reg[["0.1"]]$oob.err)
+sqrt(out.reg[["sqrt"]]$oob.err)
+sqrt(out.reg[["log"]]$oob.err)
+```
+Check community-level selection probabilities, cluster labels, and fitted model.
+```
+out.reg[["sqrt"]]$sel.prob
+out.reg[["sqrt"]]$clust
+out.reg[["sqrt"]]$fit
+```
+Compute predicted responses.
+```
+predict(out.reg[["sqrt"]]$fit, data = X)$predictions
+```
+Other example datasets in the _phyloseq_ format for the classification tasks of inflammation (Park et al., 2023), immunotherapy (Limeta et al., 2020), and obesity (Mcdonald et al., 2018).
+```
+data(inflammation)
+data(immunotherapy)
+data(obesity)
+```
+Other example datasets in the phyloseq format for the regression tasks of cytokine (Park et al., 2023) and age based on gut microbiome (Mcdonald et al., 2018).
+```
+data(cytokine)
+data(age.gut)
