@@ -160,7 +160,7 @@ Compute predicted responses.
 ```
 predict(out.reg[["sqrt"]]$fit, data = X)$predictions
 ```
-### Other Example Datasets
+## :mag: Other Example Datasets
 Other example datasets in the phyloseq format for the classification tasks of inflammation (Park et al., 2023), immunotherapy (Limeta et al., 2020), and obesity (Mcdonald et al., 2018).
 ```
 library(cluster)
