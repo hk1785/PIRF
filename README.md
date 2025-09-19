@@ -89,6 +89,7 @@ Import requisite R packages
 library(cluster)
 library(phyloseq)
 library(ranger)
+library(PIRF)
 ```
 Example Data: Gut microbiome data in the phyloseq format for the classification tasks of type 1 diabetes (Zhang et al., 2018).
 ```
@@ -127,6 +128,7 @@ Import requisite R packages
 library(cluster)
 library(phyloseq)
 library(ranger)
+library(PIRF)
 ```
 Example Data: Oral microbiome data in the phyloseq format for the regression tasks of age (Park et al, 2023).
 ```
@@ -161,23 +163,53 @@ predict(out.reg[["sqrt"]]$fit, data = X)$predictions
 ### Other Example Datasets
 Other example datasets in the phyloseq format for the classification tasks of inflammation (Park et al., 2023), immunotherapy (Limeta et al., 2020), and obesity (Mcdonald et al., 2018).
 ```
+library(cluster)
+library(phyloseq)
+library(ranger)
+library(PIRF)
+
 data(inflammation)
+
 inflammation
 ```
 ```
+library(cluster)
+library(phyloseq)
+library(ranger)
+library(PIRF)
+
 data(immunotherapy)
+
 immunotherapy
 ```
 ```
+library(cluster)
+library(phyloseq)
+library(ranger)
+library(PIRF)
+
 data(obesity)
+
 obesity
 ```
 Other example datasets in the phyloseq format for the regression tasks of cytokine (Park et al., 2023) and age based on gut microbiome (Mcdonald et al., 2018).
 ```
+library(cluster)
+library(phyloseq)
+library(ranger)
+library(PIRF)
+
 data(cytokine)
+
 cytokine
 ```
 ```
+library(cluster)
+library(phyloseq)
+library(ranger)
+library(PIRF)
+
 data(age.gut)
+
 age.gut
 ```
