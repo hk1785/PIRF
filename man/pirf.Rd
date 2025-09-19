@@ -1,13 +1,13 @@
-\name{pirf}
-\alias{pirf}
+\name{PIRF}
+\alias{PIRF}
 \title{
 Phylogeny-Informed Random Forests (PIRF)
 }
 \description{
-The pirf function streamlines the entire implementation process for Phylogeny-Informed Random Forests (PIRF). Its core routines are built upon the ranger package (Wright and Ziegler, 2017), which is implemented in C++ and supports multi-core parallel computation.
+The PIRF function streamlines the entire implementation process for Phylogeny-Informed Random Forests (PIRF). Its core routines are built upon the ranger package (Wright and Ziegler, 2017), which is implemented in C++ and supports multi-core parallel computation.
 }
 \usage{
-pirf(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = c(1/10, "sqrt", "log"), oob.err = TRUE, ...)
+PIRF(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = c(1/10, "sqrt", "log"), oob.err = TRUE, ...)
 }
 \arguments{
   \item{X}{
@@ -66,7 +66,7 @@ X <- as.data.frame(otu_table(t1d))
 y <- as.numeric(unlist(sample_data(t1d)))
 phy.tree <- phy_tree(t1d)
 
-out.cla <- pirf(X, y, phy.tree, num.trees = 1000, 
+out.cla <- PIRF(X, y, phy.tree, num.trees = 1000, 
 num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
   
 out.cla[["0.1"]]$oob.err
@@ -75,8 +75,6 @@ out.cla[["log"]]$oob.err
 
 out.cla[["0.1"]]$sel.prob
 out.cla[["0.1"]]$clust
-
-out.cla[["0.1"]]$fit
 
 predict(out.cla[["0.1"]]$fit, data = X)$predictions
 
@@ -90,7 +88,7 @@ X <- as.data.frame(otu_table(age.oral))
 y <- as.numeric(unlist(sample_data(age.oral)))
 phy.tree <- phy_tree(age.oral)
 
-out.reg <- pirf(X, y, phy.tree, num.trees = 1000, 
+out.reg <- PIRF(X, y, phy.tree, num.trees = 1000, 
 num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
 
 sqrt(out.reg[["0.1"]]$oob.err)
@@ -99,8 +97,6 @@ sqrt(out.reg[["log"]]$oob.err)
 
 out.reg[["sqrt"]]$sel.prob
 out.reg[["sqrt"]]$clust
-
-out.reg[["sqrt"]]$fit
 
 predict(out.reg[["sqrt"]]$fit, data = X)$predictions
 }

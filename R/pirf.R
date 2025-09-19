@@ -1,11 +1,11 @@
-pirf <-
+PIRF <-
 function(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = c(1/10, "sqrt", "log"), oob.err = TRUE, ...) {
   
   out <- list()
   
   for (i in 1:length(prop.ran.sel.features)) {
     prsf <- prop.ran.sel.features[i]
-    if (!is.na(as.numeric(prsf))) {
+    if (suppressWarnings(!is.na(as.numeric(prsf)))) {
       if (prsf <= 0 | prsf > 1) {
         stop("the proportion of randomly selected features must be a number between 0 and 1")
       } else {
@@ -56,7 +56,7 @@ function(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.feature
         imp.fit.clust.list <- list()
         for (k in 1:length(prop.ran.sel.features)) {
           prsf.clust <- prop.ran.sel.features[k] 
-          if (!is.na(as.numeric(prsf.clust))) {
+          if (suppressWarnings(!is.na(as.numeric(prsf.clust)))) {
             nrsf.clust <- ceiling(ncol(X.clust)*as.numeric(prsf.clust))
           }
           if (prsf.clust == "sqrt") {

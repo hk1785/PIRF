@@ -52,14 +52,14 @@ install_github("hk1785/PIRF", force=T)
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-## :mag: pirf
+## :mag: PIRF
 
 ### Description
 This function streamlines the entire implementation process for Phylogeny-Informed Random Forests (PIRF). Its core routines are built upon the ranger package (Wright and Ziegler, 2017), which is implemented in C++ and supports multi-core parallel computation.
 
 ### Syntax
 ```
-pirf(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = c(1/10, "sqrt", "log"), oob.err = TRUE, ...)
+PIRF(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = c(1/10, "sqrt", "log"), oob.err = TRUE, ...)
 ```
 
 ### Arguments
@@ -80,7 +80,7 @@ Each component is again a list with the following components:
 * _rev.features_ - Features eliminated (i.e., features with zero selection probabilities)
 * _mtry_ - The number of randomly selected features used in the final model
 * _sel.prob_ - Community-level selection probabilities
-* _clust_ - Cluster labels for phylogenetic clusters
+* _clust_ - Phylogenetic cluster labels
 * _oob.err_ - Out-of-bag prediction errors (returned when oob.err = TRUE)
 
 ### Example (Classification)
@@ -103,7 +103,7 @@ phy.tree <- phy_tree(t1d)
 ```
 Perform PIRF.
 ```
-out.cla <- pirf(X, y, phy.tree, num.trees = 1000, num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
+out.cla <- PIRF(X, y, phy.tree, num.trees = 1000, num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
 ```
 Check out-of-bag (OOB) prediction errors (classification error rates); select the one with the smallest value.
 ```
@@ -111,11 +111,10 @@ out.cla[["0.1"]]$oob.err
 out.cla[["sqrt"]]$oob.err
 out.cla[["log"]]$oob.err
 ```
-Check community-level selection probabilities, cluster labels, and fitted model.
+Check community-level selection probabilities and phylogenetic cluster labels.
 ```
 out.cla[["0.1"]]$sel.prob
 out.cla[["0.1"]]$clust
-out.cla[["0.1"]]$fit
 ```
 Compute predicted responses.
 ```
@@ -142,7 +141,7 @@ phy.tree <- phy_tree(age.oral)
 ```
 Perform PIRF.
 ```
-out.reg <- pirf(X, y, phy.tree, num.trees = 1000, num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
+out.reg <- PIRF(X, y, phy.tree, num.trees = 1000, num.threads = 4, prop.ran.sel.features = c(1/10, "sqrt", "log"))
 ```
 Check out-of-bag (OOB) prediction errors (root mean squared errors); select the one with the smallest value.
 ```
@@ -150,11 +149,10 @@ sqrt(out.reg[["0.1"]]$oob.err)
 sqrt(out.reg[["sqrt"]]$oob.err)
 sqrt(out.reg[["log"]]$oob.err)
 ```
-Check community-level selection probabilities, cluster labels, and fitted model.
+Check community-level selection probabilities and phylogenetic cluster labels.
 ```
 out.reg[["sqrt"]]$sel.prob
 out.reg[["sqrt"]]$clust
-out.reg[["sqrt"]]$fit
 ```
 Compute predicted responses.
 ```
