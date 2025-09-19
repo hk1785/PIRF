@@ -1,6 +1,6 @@
 # PIRF
 
-Title: Phylogeny-Informed Random Forest
+Title: Phylogeny-Informed Random Forests
 
 Version: 1.0
 
@@ -10,7 +10,7 @@ Author: Hyunwook Koh
 
 Maintainer: Hyunwook Koh <hyunwook.koh@stonybrook.edu>
 
-Description: This R package implements Phylogeny-Informed Random Forest (PIRF), a method designed to improve predictive accuracy in human microbiome studies. PIRF adopts a localized approach: rather than treating all features as competing globally to be selected or weighted, it identifies informative features within each phylogenetic cluster - a localized group of evolutionarily and functionally related microbial features. This strategy enriches functional representations while reducing tree correlation. Specifically, PIRF partitions the microbial feature space into multiple phylogenetic clusters using phylogenetic tree information, computes feature importance scores within each cluster, and converts them into cluster-specific probabilities. Finally, these cluster-specific probabilities are integrated across all clusters to derive community-level selection probabilities which are used for feature selection and weighting in the Random Forest (Breiman, 2001) algorithm.
+Description: This R package implements Phylogeny-Informed Random Forests (PIRF), a method designed to improve predictive accuracy in human microbiome studies. PIRF adopts a localized approach: rather than treating all features as competing globally to be selected or weighted, it identifies informative features within each phylogenetic cluster - a localized group of evolutionarily and functionally related microbial features. This strategy enriches functional representations while reducing tree correlation. Specifically, PIRF partitions the microbial feature space into multiple phylogenetic clusters using phylogenetic tree information, computes feature importance scores within each cluster, and converts them into cluster-specific probabilities. Finally, these cluster-specific probabilities are integrated across all clusters to derive community-level selection probabilities which are used for feature selection and weighting in the Random Forest (Breiman, 2001) algorithm.
 
 NeedsCompilation: no
 
@@ -55,7 +55,7 @@ install_github("hk1785/PIRF", force=T)
 ## :mag: pirf
 
 ### Description
-This function streamlines the entire implementation process for Phylogeny-Informed Random Forest (PIRF). Its core routines are built upon the ranger package (Wright and Ziegler, 2017), which is implemented in C++ and supports multi-core parallel computation.
+This function streamlines the entire implementation process for Phylogeny-Informed Random Forests (PIRF). Its core routines are built upon the ranger package (Wright and Ziegler, 2017), which is implemented in C++ and supports multi-core parallel computation.
 
 ### Syntax
 ```

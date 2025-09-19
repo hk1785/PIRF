@@ -1,10 +1,10 @@
 \name{pirf}
 \alias{pirf}
 \title{
-Phylogeny-Informed Random Forest (PIRF)
+Phylogeny-Informed Random Forests (PIRF)
 }
 \description{
-The pirf function streamlines the entire implementation process for Phylogeny-Informed Random Forest (PIRF). Its core routines are built upon the ranger package (Wright and Ziegler, 2017), which is implemented in C++ and supports multi-core parallel computation.
+The pirf function streamlines the entire implementation process for Phylogeny-Informed Random Forests (PIRF). Its core routines are built upon the ranger package (Wright and Ziegler, 2017), which is implemented in C++ and supports multi-core parallel computation.
 }
 \usage{
 pirf(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = c(1/10, "sqrt", "log"), oob.err = TRUE, ...)
