@@ -65,11 +65,11 @@ PIRF(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = 
 ### Arguments
 * _X_ - A data frame containing feature abundances, where rows represent subjects (_i_ = 1, ..., _n_) and columns represent features (_j_ = 1, ... _p_).
 * _y_ - A numeric vector containing the output values: class labels (e.g., 0: healthy, 1: diseased) for classification, or continuous response values for regression.
-* _phy.tree_ - A rooted phylogenetic tree. The tip labels of this tree should match the column names of X.
+* _phy.tree_ - A rooted phylogenetic tree. The tip labels of this tree should match the column names of _X_.
 * _num.trees_ - The number of bagged decision trees (Default: 1000).
 * _num.threads_ - The number of threads for multi-core parallel computation (Default: 1).
 * _prop.ran.sel.features_ - A vector containing the proportions of randomly selected features (Default: c(1/10, "sqrt", "log")). Here, "sqrt" refers to the square root of the number of features, and "log" refers to the base-2 logarithm of the number of features.
-* _oob.err_ - A logical value indicating whether to compute out-of-bag prediction errors (TRUE) or not (FALSE). (Default: oob.err = TRUE).
+* _oob.err_ - A logical value indicating whether to compute out-of-bag prediction errors (_TRUE_) or not (_FALSE_). (Default: _oob.err_ = _TRUE_).
 * _..._ - Additional arguments passed from the ranger package (Wright and Ziegler, 2017).
 
 ### Values
@@ -81,7 +81,7 @@ Each component is again a list with the following components:
 * _mtry_ - The number of randomly selected features used in the final model
 * _sel.prob_ - Community-level selection probabilities
 * _clust_ - Phylogenetic cluster labels
-* _oob.err_ - Out-of-bag prediction errors (returned when oob.err = TRUE)
+* _oob.err_ - Out-of-bag prediction errors (returned when _oob.err_ = _TRUE_)
 
 ### Example (Classification)
 Import requisite R packages
