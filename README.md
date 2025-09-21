@@ -63,7 +63,7 @@ PIRF(X, y, phy.tree, num.trees = 1000, num.threads = 1, prop.ran.sel.features = 
 ```
 
 ### Arguments
-* _X_ - A data frame containing feature abundances, where rows represent subjects (i = 1, ..., n) and columns represent features (j = 1, ... p).
+* _X_ - A data frame containing feature abundances, where rows represent subjects (_i_ = 1, ..., _n_) and columns represent features (_j_ = 1, ... _p_).
 * _y_ - A numeric vector containing the output values: class labels (e.g., 0: healthy, 1: diseased) for classification, or continuous response values for regression.
 * _phy.tree_ - A rooted phylogenetic tree. The tip labels of this tree should match the column names of X.
 * _num.trees_ - The number of bagged decision trees (Default: 1000).
